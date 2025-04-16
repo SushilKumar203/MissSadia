@@ -1,0 +1,104 @@
+import java.util.Scanner;
+
+public class area2 {
+    public static void menu() {
+        System.out.println("\nMenu:");
+        System.out.println("1. Register a new student in the system.");
+        System.out.println("2. Display a student's complete record.");
+        System.out.println("3. Change a student's grade");
+        System.out.println("4. remove a student");
+        System.out.println("5. Exit");
+    }
+
+    public static void main(String[] args) {
+        Student[] students = new Student[50];
+        int count = 0, choice = 0;
+        Scanner input = new Scanner(System.in);
+
+        while (choice != 5) {
+            menu();
+            System.out.print("Enter Your choice: ");
+            choice = input.nextInt();
+            input.nextLine(); // Clear the newline
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter student ID:");
+                    String stdId = input.nextLine();
+                    System.out.println("Enter student Name:");
+                    String stdName = input.nextLine();
+                    System.out.println("Enter student section:");
+                    String section = input.nextLine();
+                    System.out.println("Enter student grade:");
+                    int grade = input.nextInt();
+                    input.nextLine(); // Clear newline
+
+                    students[count] = new Student(stdId, stdName, grade, section);
+                    count++;
+                    System.out.println("Student added successfully.");
+                    break;
+
+                case 2:
+                    System.out.println("Enter student ID you want to show:");
+                    String id = input.nextLine();
+                    boolean found = false;
+                    for (int i = 0; i < count; i++) {
+                        if (students[i].getID().equals(id)) {
+                            students[i].showStudentsInfo();
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("No student with that ID found.");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Enter student ID you want to show:");
+                    String ide = input.nextLine();
+                    boolean foundi= false;
+                    for (int i = 0; i < count; i++) {
+                        if (students[i].getID().equals(ide)) {
+                            System.out.println("Enter new grade");
+                            int newGrade = input.nextInt();
+                            students[i].setGrade(newGrade);
+                            foundi = true;
+                            break;
+                        }
+                    }
+                    if (!foundi) {
+                        System.out.println("No student with that ID found.");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Enter student ID you want to show:");
+                    String ids = input.nextLine();
+                    boolean founding = false;
+                    for (int i = 0; i < count; i++) {
+                        if (students[i].getID().equals(ids)) {
+                            System.out.println("student removed");
+                            for (int j = i; j < count - 1; j++) {
+                                students[j] = students[j + 1];
+                            }
+                            students[count - 1] = null; // Optional: clear the last reference
+                            count--;
+                            founding = true;
+                            break;
+                        }
+                    }
+                    if (!founding) {
+                        System.out.println("No student with that ID found.");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Exiting the system.");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please select from the menu.");
+            }
+        }
+
+        input.close();
+    }
+}
