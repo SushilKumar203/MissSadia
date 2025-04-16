@@ -39,7 +39,7 @@ public class area2 {
                     break;
 
                 case 2:
-                    System.out.println("Enter student ID you want to final:");
+                    System.out.println("Enter student ID you want to show:");
                     String id = input.nextLine();
                     boolean found = false;
                     for (int i = 0; i < count; i++) {
@@ -54,7 +54,7 @@ public class area2 {
                     }
                     break;
                 case 3:
-                    System.out.println("Enter student ID you want to show:");
+                    System.out.println("Enter student ID you want to change grade:");
                     String ide = input.nextLine();
                     boolean foundi= false;
                     for (int i = 0; i < count; i++) {
@@ -71,7 +71,7 @@ public class area2 {
                     }
                     break;
                 case 4:
-                    System.out.println("Enter student ID you want to show:");
+                    System.out.println("Enter student ID you want to delete:");
                     String ids = input.nextLine();
                     boolean founding = false;
                     for (int i = 0; i < count; i++) {
