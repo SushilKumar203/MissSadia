@@ -39,7 +39,7 @@ public class area2 {
                     break;
 
                 case 2:
-                    System.out.println("Enter student ID you want to show:");
+                    System.out.println("Enter student ID you want to final:");
                     String id = input.nextLine();
                     boolean found = false;
                     for (int i = 0; i < count; i++) {
